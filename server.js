@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
-  </head>
-  <body>
-    <main>
-        <h1>Welcome to My Website</h1>  
-    </main>
-	<script src="index.js"></script>
-  </body>
-</html>
+const http = require("http");
+
+const host = 'localhost';
+const port = 8000;
+
+const requestListener = function(req, res) {
+    res.writeHead(200);
+    res.end("Hello World from Node.js HTTP Server");
+}
+
+const server = http.createServer(requestListener);
+server.listen(port, host, () => {
+    // this is for testing 
+    console.log(`Server is running on http://${host}:${port}`);
+}); 
